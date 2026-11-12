@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f5f0">
+    <meta name="description" content="Find your people nearby. Discover local communities and real-world gatherings.">
+    <title>Goodfolk — Find your people</title>
+    <link rel="icon" href="/mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Goodfolk home">
+        <span class="brand-mark" aria-hidden="true">g</span>
+        <span>goodfolk</span>
+      </a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
+        <span></span><span></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#communities" data-nav="communities">Communities</a>
+        <a href="#gatherings" data-nav="gatherings">Gatherings</a>
+        <button class="nav-location" type="button" data-action="focus-location" aria-label="Change your city">
+          <span class="pin-icon" aria-hidden="true">⌖</span>
+          <span id="nav-city">Finding your place</span>
+          <span aria-hidden="true">⌄</span>
+        </button>
+        <button class="button button-outline button-small" type="button" data-action="open-access">Sign in</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> A little closer to feeling at home</div>
+          <h1>Find your people.<br><span>Find your community.</span></h1>
+          <p>New in town? Looking to meet people who share your interests? Discover local communities, join real-world experiences and build connections that go beyond the screen.</p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#communities">Explore communities <span aria-hidden="true">↗</span></a>
+            <a class="button button-text" href="#gatherings">Discover gatherings <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-note">
+            <span class="avatar-stack" aria-hidden="true"><i>✳</i><i>♡</i><i>↗</i></span>
+            <span>Less scrolling. More <strong>showing up.</strong></span>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Illustration of neighbors meeting at a local gathering" role="img">
+          <div class="sun-disc"></div>
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="art-person person-one"><span class="person-head"></span><span class="person-body"></span></div>
+          <div class="art-person person-two"><span class="person-head"></span><span class="person-body"></span></div>
+          <div class="art-person person-three"><span class="person-head"></span><span class="person-body"></span></div>
+          <div class="art-plant plant-one">✳</div>
+          <div class="art-plant plant-two">✦</div>
+          <div class="art-card"><span class="art-card-icon">↗</span><span><strong>Good things happen</strong><small>when we get together.</small></span></div>
+          <div class="art-caption">a table, a trail,<br>your kind of people.</div>
+        </div>
+      </section>
+
+      <section class="discovery" id="communities">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-dot"></span> Start close to home</div>
+            <h2>There's room for you here.</h2>
+            <p>Real people, local interests, plans you can actually show up to.</p>
+          </div>
+          <button class="button button-outline create-button" type="button" data-action="create-community"><span aria-hidden="true">＋</span> Start a community</button>
+        </div>
+
+        <div class="filter-bar">
+          <label class="location-field">
+            <span class="sr-only">Your city</span>
+            <span class="pin-icon" aria-hidden="true">⌖</span>
+            <input id="city-filter" type="text" list="city-options" maxlength="60" autocomplete="address-level2" aria-label="Filter by city">
+            <datalist id="city-options"></datalist>
+            <span aria-hidden="true">⌄</span>
+          </label>
+          <label class="search-field">
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Try hiking, books, friendly faces…" autocomplete="off">
+            <kbd>⌘ K</kbd>
+          </label>
+          <label class="interest-field">
+            <span class="sr-only">Filter by interest</span>
+            <select id="interest-filter" aria-label="Filter by interest">
+              <option value="">All interests</option>
+            </select>
+          </label>
+        </div>
+        <div class="interest-chips" id="interest-chips" aria-label="Popular interests"></div>
+
+        <div class="discovery-section" id="community-results">
+          <div class="results-heading">
+            <h3>Communities nearby</h3>
+            <span id="community-count">Loading…</span>
+          </div>
+          <div class="community-grid" id="community-grid" aria-live="polite"></div>
+        </div>
+
+        <div class="gatherings-section" id="gatherings">
+          <div class="results-heading">
+            <div><div class="eyebrow"><span class="eyebrow-dot"></span> Out in the world</div><h3>Coming up together</h3></div>
+            <button class="text-link" type="button" data-action="create-event">Organize a gathering <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="event-grid" id="event-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="invite-strip">
+        <div class="invite-spark" aria-hidden="true">✳</div>
+        <div><span class="eyebrow">Good things start small</span><h2>Know a place where people belong?</h2><p>Bring your corner of the world together. Your first gathering can be as simple as coffee and a hello.</p></div>
+        <button class="button button-light" type="button" data-action="create-community">Create a community <span aria-hidden="true">↗</span></button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">g</span><span>goodfolk</span></a>
+      <span>Made for the moments that happen offline.</span>
+      <span class="footer-note">Your next hello is closer than you think.</span>
+    </footer>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section class="modal-panel" id="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" type="button" data-action="close-modal" aria-label="Close dialog">×</button>
+        <div id="modal-content"></div>
+      </section>
+    </div>
+    <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </body>
+</html>
